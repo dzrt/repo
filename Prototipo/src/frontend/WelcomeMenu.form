@@ -304,11 +304,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Listar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonListarPIActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonRegistarPI">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Registar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRegistarPIActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1909,18 +1915,8 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel11">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Users\Bernardo\Desktop\DAIPP2\Java\&#xed;cones\traffic-lights-yellow-icon.png"/>
-                        </Property>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel12">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="C:\Users\Bernardo\Desktop\DAIPP2\Java\&#xed;cones\traffic-lights-red-icon.png"/>
-                        </Property>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="jRadioButton2">
                       <Properties>

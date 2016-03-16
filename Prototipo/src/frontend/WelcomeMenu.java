@@ -109,7 +109,7 @@ public class WelcomeMenu extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<String>();
         jButton34 = new javax.swing.JButton();
         jButton35 = new javax.swing.JButton();
         jLabel52 = new javax.swing.JLabel();
@@ -194,7 +194,7 @@ public class WelcomeMenu extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jDateChooser4 = new com.toedter.calendar.JDateChooser();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -416,8 +416,18 @@ public class WelcomeMenu extends javax.swing.JFrame {
         jPanelProcessosEmpresas.setBounds(0, 20, 140, 140);
 
         jButtonListarPI.setText("Listar");
+        jButtonListarPI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonListarPIActionPerformed(evt);
+            }
+        });
 
         jButtonRegistarPI.setText("Registar");
+        jButtonRegistarPI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistarPIActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelMenuPILayout = new javax.swing.GroupLayout(jPanelMenuPI);
         jPanelMenuPI.setLayout(jPanelMenuPILayout);
@@ -730,7 +740,7 @@ public class WelcomeMenu extends javax.swing.JFrame {
 
         jLabel50.setText("Fazer backup:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diariamente", "Semanalmente", "Quinzenalmente", "Mensalmente" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diariamente", "Semanalmente", "Quinzenalmente", "Mensalmente" }));
 
         jButton34.setText("Fazer Backup Agora...");
 
@@ -1187,10 +1197,6 @@ public class WelcomeMenu extends javax.swing.JFrame {
 
         jRadioButton1.setText("Baixa");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bernardo\\Desktop\\DAIPP2\\Java\\ícones\\traffic-lights-yellow-icon.png")); // NOI18N
-
-        jLabel12.setIcon(new javax.swing.ImageIcon("C:\\Users\\Bernardo\\Desktop\\DAIPP2\\Java\\ícones\\traffic-lights-red-icon.png")); // NOI18N
-
         jRadioButton2.setText("Média");
 
         jRadioButton3.setText("Alta");
@@ -1358,7 +1364,7 @@ public class WelcomeMenu extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aberto", "Fechado", "Cancelado" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Aberto", "Fechado", "Cancelado" }));
 
         jButton4.setText("Registar");
 
@@ -2709,7 +2715,7 @@ public class WelcomeMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxListarPorPEActionPerformed
 
     private void jButtonListarPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarPEActionPerformed
-        
+        String tipo = "Empresa";
         jPanelBackground.removeAll();
         jPanelBackground.repaint();
         jPanelBackground.revalidate();
@@ -2720,6 +2726,7 @@ public class WelcomeMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonListarPEActionPerformed
 
     private void jButtonRegistarPEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarPEActionPerformed
+        String tipo = "Empresa";
         jPanelBackground.removeAll();
         jPanelBackground.repaint();
         jPanelBackground.revalidate();
@@ -3006,6 +3013,28 @@ public class WelcomeMenu extends javax.swing.JFrame {
         jPanelBackground.repaint();
         jPanelBackground.revalidate();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButtonRegistarPIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistarPIActionPerformed
+         String tipo = "Individual";
+        jPanelBackground.removeAll();
+        jPanelBackground.repaint();
+        jPanelBackground.revalidate();
+        
+        jPanelBackground.add(jPanelRegisterEnterprise);
+        jPanelBackground.repaint();
+        jPanelBackground.revalidate();
+    }//GEN-LAST:event_jButtonRegistarPIActionPerformed
+
+    private void jButtonListarPIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarPIActionPerformed
+         String tipo = "Individual";
+        jPanelBackground.removeAll();
+        jPanelBackground.repaint();
+        jPanelBackground.revalidate();
+        
+        jPanelBackground.add(jPanelListarPE);
+        jPanelBackground.repaint();
+        jPanelBackground.revalidate();
+    }//GEN-LAST:event_jButtonListarPIActionPerformed
 /*public void keyReleased(KeyEvent ke) 
 {
     if(ke.getKeyCode() == KeyEvent.VK_BACK_SPACE)
