@@ -153,7 +153,7 @@ public class LOG extends javax.swing.JFrame {
        for(int i = 0;i < caracters.length;i++){
            password+= caracters[i];
        }
-        if(l.existe(jTextField1.getText(),password)){
+        if(l.isUser(jTextField1.getText(),password)){
             WelcomeMenu p = new WelcomeMenu();
             p.pack();
             p.setExtendedState(p.MAXIMIZED_BOTH); 

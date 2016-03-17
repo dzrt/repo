@@ -5,6 +5,7 @@
  */
 package frontend;
 //testing
+import backend.bd;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
@@ -16,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -1255,20 +1257,17 @@ public class WelcomeMenu extends javax.swing.JFrame {
                         .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2))
-                            .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                                .addGap(239, 239, 239)
-                                .addComponent(jButton3))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
                     .addGroup(jPanelAppBookLayout.createSequentialGroup()
                         .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(14, 14, 14)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 249, Short.MAX_VALUE))
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)))
+                .addGap(0, 256, Short.MAX_VALUE))
         );
         jPanelAppBookLayout.setVerticalGroup(
             jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1288,8 +1287,14 @@ public class WelcomeMenu extends javax.swing.JFrame {
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9))
                     .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelAppBookLayout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(jPanelAppBookLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(jLabel4)))
                 .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelAppBookLayout.createSequentialGroup()
@@ -1297,8 +1302,6 @@ public class WelcomeMenu extends javax.swing.JFrame {
                         .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelAppBookLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2)))
                 .addGap(174, 174, 174))
         );
@@ -2826,7 +2829,7 @@ public class WelcomeMenu extends javax.swing.JFrame {
             String selection = "SELECT * FROM funcionarios";
             pst = conn.prepareStatement(selection);
             rs = pst.executeQuery(selection);
-            tabelaprod.setModel(DbUtils.resultSetToTableModel(rs));
+           // tabelaprod.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -2860,6 +2863,37 @@ public class WelcomeMenu extends javax.swing.JFrame {
         
         jPanelBackground.repaint();
         jPanelBackground.revalidate();
+        bd l = new bd();
+        String array[] = l.getNext7Days();
+        String array2[][] = l.getAgenda("root");
+        for(int i = 0;i <= array.length - 1 ;i++){
+            jTabbedPane1.setTitleAt(i,array[i]);
+        }
+        for(int row = 0;row <= array2.length - 1;row++){
+            System.out.println("test2");
+            for(int y = 0;y <= array.length - 1;y++){
+                            System.out.println("test3");
+                if(array2[row][0].equals(array[y])){
+                    System.out.println("yep");
+                    switch(y){
+                        case 0: jTextArea3.setText(array2[row][2]);
+                            break;
+                        case 1: jTextArea4.setText(array2[row][2]);
+                            break;
+                        case 2: jTextArea5.setText(array2[row][2]);
+                            break;
+                        case 3: jTextArea2.setText(array2[row][2]);
+                            break;
+                        case 4: jTextArea6.setText(array2[row][2]);
+                            break;
+                        case 5: jTextArea7.setText(array2[row][2]);
+                            break;
+                        case 6: jTextArea8.setText(array2[row][2]);
+                            break;
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_jButtonShowAppBookActionPerformed
 
     private void jCalendar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCalendar1MouseClicked
@@ -2872,19 +2906,33 @@ public class WelcomeMenu extends javax.swing.JFrame {
             jLabel8.setText(sdf.format(jCalendar1.getDate()));
             ImageIcon ii = new ImageIcon(getClass().getResource("CalendarDay.png"));
             jLabel8.setIcon(ii);
-            
-            /*Date dataTeste = jCalendar1.getDate();
-
-            Calendar cal = Calendar.getInstance(); 
-            cal.setTime(jCalendar1.getDate()); 
-            cal.add(Calendar.DATE, 1);
-            dataTeste = cal.getTime();
-            System.out.println(dataTeste);*/
-            
             jLabel8.setVisible(true);
             jTextArea1.setVisible(true);
             jLabel4.setVisible(true);
             jButton2.setVisible(true);
+            bd l = new bd();
+            //Timestamp conversion
+            try{
+            java.util.Date date = new java.util.Date();
+	    //long timestamphoje = new java.util.Date().getTime();
+            long timestampfinal = jCalendar1.getDate().getTime();//works
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(new Date());
+            cal.set(Calendar.HOUR_OF_DAY, 0);            
+            cal.set(Calendar.MINUTE, 0);                 
+            cal.set(Calendar.SECOND, 0);                 
+            cal.set(Calendar.MILLISECOND, 0); 
+            Date datai = cal.getTime();
+            long timestamphoje = datai.getTime();
+            if(timestampfinal <= timestamphoje){
+                jTextArea1.setEnabled(false);
+            }else{
+                jTextArea1.setEnabled(true);
+            }
+            //System.out.println(timestamphoje);
+            }catch(Exception e){
+                System.out.println(e);
+            }
         }
     }//GEN-LAST:event_jCalendar1PropertyChange
 
