@@ -34,7 +34,7 @@ public class bd {
     public boolean isUser(String user,String password){
         boolean flag = false ;
         try{
-            String query = "SELECT users.user FROM users WHERE users.user='"+user+"' AND users.password='"+password+"'";
+            String query = "SELECT user.username FROM user WHERE user.username='"+user+"' AND user.password='"+password+"'";
             result = statement.executeQuery(query);
             flag = result.next();
         }catch(Exception e){

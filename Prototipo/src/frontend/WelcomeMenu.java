@@ -8,7 +8,10 @@ package frontend;
 import backend.bd;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 import static java.lang.String.valueOf;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,6 +28,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
@@ -170,13 +174,14 @@ public class WelcomeMenu extends javax.swing.JFrame {
         jTextArea8 = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jLabel63 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jRadioButton2 = new javax.swing.JRadioButton();
+        jLabel12 = new javax.swing.JLabel();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jButton3 = new javax.swing.JButton();
         jPanelRegisterEnterprise = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel9 = new javax.swing.JPanel();
@@ -1070,6 +1075,8 @@ public class WelcomeMenu extends javax.swing.JFrame {
             }
         });
 
+        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jTextArea3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255)));
@@ -1195,52 +1202,32 @@ public class WelcomeMenu extends javax.swing.JFrame {
 
         jLabel9.setText("Urgência: ");
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/traffic-lights-green-icon.png"))); // NOI18N
-
-        jRadioButton1.setText("Baixa");
-
-        jRadioButton2.setText("Média");
-
-        jRadioButton3.setText("Alta");
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 296, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jRadioButton1))
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jRadioButton2))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jRadioButton3)))
-                .addContainerGap())
+            .addGap(0, 65, Short.MAX_VALUE)
         );
 
         jButton3.setText("Alterar Urgência");
+
+        jLabel63.setText("Eventos da próxima semana:");
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/traffic-lights-green-icon.png"))); // NOI18N
+
+        jRadioButton1.setText("Baixa");
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/traffic-lights-yellow-icon.png"))); // NOI18N
+
+        jRadioButton2.setText("Média");
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/frontend/traffic-lights-red-icon.png"))); // NOI18N
+
+        jRadioButton3.setText("Alta");
 
         javax.swing.GroupLayout jPanelAppBookLayout = new javax.swing.GroupLayout(jPanelAppBook);
         jPanelAppBook.setLayout(jPanelAppBookLayout);
@@ -1250,60 +1237,92 @@ public class WelcomeMenu extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                        .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelAppBookLayout.createSequentialGroup()
+                                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48)
+                                .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelAppBookLayout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(63, 63, 63)
+                                .addComponent(jRadioButton1)))
+                        .addGap(0, 256, Short.MAX_VALUE))
                     .addGroup(jPanelAppBookLayout.createSequentialGroup()
                         .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2))
-                    .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                        .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)
+                            .addGroup(jPanelAppBookLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton2))
+                            .addGroup(jPanelAppBookLayout.createSequentialGroup()
+                                .addGap(105, 105, 105)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanelAppBookLayout.createSequentialGroup()
+                                        .addGap(63, 63, 63)
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jRadioButton2)
+                                        .addGap(24, 24, 24)
+                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jRadioButton3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton3)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)))
-                .addGap(0, 256, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelAppBookLayout.setVerticalGroup(
             jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAppBookLayout.createSequentialGroup()
                 .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(60, 60, 60)
+                        .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9))
                     .addGroup(jPanelAppBookLayout.createSequentialGroup()
                         .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(jLabel4)))
-                .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanelAppBookLayout.createSequentialGroup()
+                                        .addGap(19, 19, 19)
+                                        .addGroup(jPanelAppBookLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jRadioButton3)
+                                            .addComponent(jButton3)))
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanelAppBookLayout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(jRadioButton2))
+                                    .addGroup(jPanelAppBookLayout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(jRadioButton1)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelAppBookLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
-                .addGap(174, 174, 174))
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(14, 14, 14)
+                .addComponent(jButton2)
+                .addGap(106, 106, 106))
         );
 
         jPanelBackground.add(jPanelAppBook, "card6");
@@ -2852,6 +2871,15 @@ public class WelcomeMenu extends javax.swing.JFrame {
         jPanelBackground.repaint();
         jPanelBackground.revalidate();
         
+        jLabel9.setVisible(false);
+        jLabel10.setVisible(false);
+        jLabel11.setVisible(false);
+        jLabel12.setVisible(false);
+        jRadioButton1.setVisible(false);
+        jRadioButton2.setVisible(false);
+        jRadioButton3.setVisible(false);
+        jButton3.setVisible(false);
+        
         jPanelBackground.add(jPanelAppBook);
         jLabel8.setVisible(false);
         jTextArea1.setVisible(false);
@@ -2869,26 +2897,83 @@ public class WelcomeMenu extends javax.swing.JFrame {
         for(int i = 0;i <= array.length - 1 ;i++){
             jTabbedPane1.setTitleAt(i,array[i]);
         }
+        ImageIcon green = new ImageIcon(this.getClass().getResource("/imagens/green.png"));
+        ImageIcon yellow = new ImageIcon(this.getClass().getResource("/imagens/yellow.png"));
+        ImageIcon red = new ImageIcon(this.getClass().getResource("/imagens/red.png"));
         for(int row = 0;row <= array2.length - 1;row++){
-            System.out.println("test2");
             for(int y = 0;y <= array.length - 1;y++){
-                            System.out.println("test3");
                 if(array2[row][0].equals(array[y])){
-                    System.out.println("yep");
+                    String urgency = array2[row][1];
                     switch(y){
-                        case 0: jTextArea3.setText(array2[row][2]);
+                        case 0: jTextArea3.setText(array2[row][2]);  
+                                switch(urgency){
+                                    case "1":jTabbedPane1.setIconAt(y,green);
+                                        break;
+                                    case "2":jTabbedPane1.setIconAt(y,yellow);
+                                        break;
+                                    case "3":jTabbedPane1.setIconAt(y,red);
+                                        break;
+                                }
                             break;
                         case 1: jTextArea4.setText(array2[row][2]);
+                                switch(urgency){
+                                    case "1":jTabbedPane1.setIconAt(y,green);
+                                        break;
+                                    case "2":jTabbedPane1.setIconAt(y,yellow);
+                                        break;
+                                    case "3":jTabbedPane1.setIconAt(y,red);
+                                        break;
+                                }
                             break;
                         case 2: jTextArea5.setText(array2[row][2]);
+                         switch(urgency){
+                                    case "1":jTabbedPane1.setIconAt(y,green);
+                                        break;
+                                    case "2":jTabbedPane1.setIconAt(y,yellow);
+                                        break;
+                                    case "3":jTabbedPane1.setIconAt(y,red);
+                                        break;
+                                }
                             break;
                         case 3: jTextArea2.setText(array2[row][2]);
+                         switch(urgency){
+                                    case "1":jTabbedPane1.setIconAt(y,green);
+                                        break;
+                                    case "2":jTabbedPane1.setIconAt(y,yellow);
+                                        break;
+                                    case "3":jTabbedPane1.setIconAt(y,red);
+                                        break;
+                                }
                             break;
                         case 4: jTextArea6.setText(array2[row][2]);
+                         switch(urgency){
+                                    case "1":jTabbedPane1.setIconAt(y,green);
+                                        break;
+                                    case "2":jTabbedPane1.setIconAt(y,yellow);
+                                        break;
+                                    case "3":jTabbedPane1.setIconAt(y,red);
+                                        break;
+                                }
                             break;
                         case 5: jTextArea7.setText(array2[row][2]);
+                         switch(urgency){
+                                    case "1":jTabbedPane1.setIconAt(y,green);
+                                        break;
+                                    case "2":jTabbedPane1.setIconAt(y,yellow);
+                                        break;
+                                    case "3":jTabbedPane1.setIconAt(y,red);
+                                        break;
+                                }
                             break;
                         case 6: jTextArea8.setText(array2[row][2]);
+                         switch(urgency){
+                                    case "1":jTabbedPane1.setIconAt(y,green);
+                                        break;
+                                    case "2":jTabbedPane1.setIconAt(y,yellow);
+                                        break;
+                                    case "3":jTabbedPane1.setIconAt(y,red);
+                                        break;
+                                }
                             break;
                     }
                 }
@@ -2905,11 +2990,19 @@ public class WelcomeMenu extends javax.swing.JFrame {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             jLabel8.setText(sdf.format(jCalendar1.getDate()));
             ImageIcon ii = new ImageIcon(getClass().getResource("CalendarDay.png"));
+            String jclnd = sdf.format(jCalendar1.getDate());
             jLabel8.setIcon(ii);
             jLabel8.setVisible(true);
             jTextArea1.setVisible(true);
             jLabel4.setVisible(true);
             jButton2.setVisible(true);
+            jLabel9.setVisible(true);
+            jLabel10.setVisible(true);
+            jLabel11.setVisible(true);
+            jLabel12.setVisible(true);
+            jRadioButton1.setVisible(true);
+            jRadioButton2.setVisible(true);
+            jRadioButton3.setVisible(true);
             bd l = new bd();
             //Timestamp conversion
             try{
@@ -2924,14 +3017,61 @@ public class WelcomeMenu extends javax.swing.JFrame {
             cal.set(Calendar.MILLISECOND, 0); 
             Date datai = cal.getTime();
             long timestamphoje = datai.getTime();
+            String agenda2[][] = l.getAgenda("root");
             if(timestampfinal <= timestamphoje){
                 jTextArea1.setEnabled(false);
+                jRadioButton1.setVisible(false);
+                jRadioButton2.setVisible(false);
+                jRadioButton3.setVisible(false);
+                for(int row = 0;row <= agenda2.length - 1;row++){
+                    if(jclnd.equals(agenda2[row][0])){
+                        jButton3.setVisible(true);
+                        String urgency = agenda2[row][1] ;
+                        switch(urgency){
+                            case "1":
+                                jLabel10.setVisible(true);
+                                jLabel11.setVisible(false);
+                                jLabel12.setVisible(false);
+                                break;
+                            case "2":
+                                jLabel11.setVisible(true);
+                                jLabel10.setVisible(false);
+                                jLabel12.setVisible(false);
+                                break;
+                            case "3":
+                                jLabel11.setVisible(true);
+                                jLabel10.setVisible(false);
+                                jLabel11.setVisible(false);
+                                break;
+                        }
+                        break;
+                    }else{
+                        jButton3.setVisible(false);
+                        jLabel9.setVisible(false);
+                        jLabel10.setVisible(false);
+                        jLabel11.setVisible(false);
+                        jLabel12.setVisible(false);
+                    }
+                }
             }else{
                 jTextArea1.setEnabled(true);
+                jRadioButton1.setVisible(true);
+                jRadioButton2.setVisible(true);
+                jRadioButton3.setVisible(true);
             }
             //System.out.println(timestamphoje);
             }catch(Exception e){
                 System.out.println(e);
+            }
+            //Ler eventos
+            String agenda[][] = l.getAgenda("root");
+            for(int i = 0;i <= agenda.length - 1;i++){
+                if(agenda[i][0].equals(jclnd)){
+                    jTextArea1.setText(agenda[i][2]);
+                    break;
+                }else{
+                     jTextArea1.setText("");
+                }
             }
         }
     }//GEN-LAST:event_jCalendar1PropertyChange
@@ -3250,6 +3390,7 @@ public class WelcomeMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

@@ -34,15 +34,15 @@ public class main {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LOG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        /*
+        
         LOG l = new LOG();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         l.setLocation(dim.width/2-l.getSize().width/2, dim.height/2-l.getSize().height/2);
         l.repaint();
         l.revalidate();
         l.setVisible(true);
-        */
-        bd l = new bd();
+        
+        
         /*ligarbd l = new ligarbd();
         System.out.print(l.existe("root","root"));
 */

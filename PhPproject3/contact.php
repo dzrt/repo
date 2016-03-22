@@ -71,7 +71,7 @@ include_once 'header.php';
                     <div class="col-md-6">
                         <div class="block">
                             <h2 class="subtitle wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".3s">Contacte-nos</h2>
-                            <p class="subtitle-des wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".5s">Estabeleça contacto connosco sobre o que quiser em caso de dúvidas, reclamações, de vendas.
+                            <p class="subtitle-des wow fadeInDown" data-wow-duration="500ms" data-wow-delay=".5s">Contacte-nos em caso de dúvidas, reclamações ou de vendas.
                                 
                                  
                             </p>
