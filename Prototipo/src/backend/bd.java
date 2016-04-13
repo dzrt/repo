@@ -19,7 +19,7 @@ public class bd {
     public bd(){
         try{
         Class.forName("com.mysql.jdbc.Driver");
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd1","root","");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd1","root","root");
         statement = connection.createStatement();
         }catch(Exception e){
             System.out.println(e);
